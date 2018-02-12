@@ -1,8 +1,49 @@
-page2.html
-<script type="text/javascript">
-<div class="input-color">
-    <input type="text" value="Orange" />
-    <div class="color-box" style="background-color: #FF850A;"></div>
-    <!-- Replace "#FF850A" to change the color -->
-</div>
+<header>
+	<title>You are now on the second page</title>
+	<link rel="stylesheet" href="rfollman.github.io/main-php.css">
+</header>
+
+<html>
+<!-this makes a pop-up that shows the date->
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>Today's Date</title>
+    <script>
+        let d = new Date();
+        alert("Today's date is " + d);
+
+    </script>
+</head>
+
+<p>
+	<a href="index.html" target="_self">Link to home page</a>
+</p>
+
+<script>
+    function changeColorGreen()
+    {
+    	document.body.style.background = "greenyellow"  	
+    };
+    
+    function changeColorRed()
+    {
+    	document.body.style.background = "maroon"  	
+    };
 </script>
+
+<body>
+	<body style="background-color:lightcoral;">
+	<script>
+		<input type="button" value="Back" onclick="window.history.back()" />
+	</script>
+
+	<h1>Click these buttons to change the color!</h1>
+        <button onclick="changeColorGreen()">Green!</button>
+         <button onclick="changeColorRed()">Red!</button>
+ <p>
+Here are the <a href="https://stackoverflow.com/questions/15824504/javascript-change-page-background-color-with-button">first</a> and <a href="https://www.digitalocean.com/community/tutorials/how-to-add-javascript-to-html">second</a> main resources I used to complete this assignment.
+</p>
+<body>
+
+<html>
