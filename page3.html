@@ -1,5 +1,6 @@
 <header>
 	<title>Page 3</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </header>
 
 <p>
@@ -20,16 +21,16 @@ th {
 <html>
 	<table class="table table-striped" id="musicList">
 		<tr>
-		<th>Title</th>
-		<th>Artist</th>
-		<th>Album</th>
-		<th>Genre</th>
+			<th>Title</th>
+			<th>Artist</th>
+			<th>Album</th>
+			<th>Genre</th>
 		</tr>
 
 	</table>
 
     <script>
-
+$(function() {
 var songs = [
 		{
 		Title: "Inside Out",
@@ -65,11 +66,12 @@ var songs = [
 
 var cols = ['Title', 'Artist', 'Album', 'Genre'];
 for (var i = 0; i < songs.length; i++) {
-  $('table').append('<tr></tr>');
+  $('.table').append('<tr></tr>');
   for (var j = 0; j < cols.length; j++) {
-    $('table tr:last-child').append('<td>' + songs[i][cols[j]] + '</td>');
+    $('.table tr:last-child').append('<td>' + songs[i][cols[j]] + '</td>');
   }
 }
+});
 </script>
 
 </html>
