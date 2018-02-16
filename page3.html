@@ -1,0 +1,76 @@
+<header>
+	<title>Page 3</title>
+</header>
+
+<p>
+	<a href="index.html" target="_self">Link to home page</a>
+</p>
+
+<style media="screen" type="text/css">
+
+td,
+th {
+  border: 1px solid grey;
+  padding: 3px 8px;
+}
+
+
+</style>
+
+<html>
+	<table class="table table-striped" id="musicList">
+		<tr>
+		<th>Title</th>
+		<th>Artist</th>
+		<th>Album</th>
+		<th>Genre</th>
+		</tr>
+
+	</table>
+
+    <script>
+
+var songs = [
+		{
+		Title: "Inside Out",
+		Artist: "Spoon",
+		Album: "They Want My Soul",
+		Genre: "Alternative",
+	},
+	{
+		Title: "Little Wing",
+		Artist: "Jimi Hendrix",
+		Album: "Axis: Bold as Love",
+		Genre: "Classic Rock",
+	},
+	{
+		Title: "Island in The Sun",
+		Artist: "Weezer",
+		Album: "Weezer (Green Album)",
+		Genre: "Alternative",
+	},
+	{
+		Title: "Feel Good Inc.",
+		Artist: "Gorillaz",
+		Album: "Demon Days",
+		Genre: "Alternative",
+	},
+	{
+		Title: "See Me",
+		Artist: "Rich Brian",
+		Album: "Amen",
+		Genre: "Rap/Hip-Hop",
+	}
+	];
+
+var cols = ['Title', 'Artist', 'Album', 'Genre'];
+for (var i = 0; i < songs.length; i++) {
+  $('table').append('<tr></tr>');
+  for (var j = 0; j < cols.length; j++) {
+    $('table tr:last-child').append('<td>' + songs[i][cols[j]] + '</td>');
+  }
+}
+</script>
+
+</html>
+	
