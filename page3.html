@@ -1,6 +1,7 @@
 <header>
 	<title>Page 3</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<meta charset="utf-8"/>
 </header>
 
 <p>
@@ -11,68 +12,116 @@
 
 td,
 th {
-  border: 1px solid grey;
-  padding: 3px 8px;
+	border: 1px solid grey;
+	padding: 3px 8px;
 }
-
 
 </style>
 
 <html>
-	<table class="table table-striped" id="musicList">
-		<tr>
-			<th>Title</th>
-			<th>Artist</th>
-			<th>Album</th>
-			<th>Genre</th>
-		</tr>
 
-	</table>
+<table class="table table-striped" id="musicList">
+	<tr>
+		<th>Title</th>
+		<th>Artist</th>
+		<th>Album</th>
+		<th>Genre</th>
+		<th>Duration</th>
+	</tr>
+</table>
 
-    <script>
-$(function() {
+<table class="table table-striped" id="statTab">
+	<tr>
+		<th>Total Song Count</th>
+		<th>Total Artist Count</th>
+		<th>Total Duration</th>
+	</tr>
+	<tr></tr>
+</table>
+
+<!-- 5:02/302 -->
+<!-- 2:26/146 -->
+<!-- 3:20/200 -->
+<!-- 3:43/223 -->
+<!-- 3:32/212 -->
+
+<script>
 var songs = [
 		{
-		Title: "Inside Out",
-		Artist: "Spoon",
-		Album: "They Want My Soul",
-		Genre: "Alternative",
-	},
-	{
-		Title: "Little Wing",
-		Artist: "Jimi Hendrix",
-		Album: "Axis: Bold as Love",
-		Genre: "Classic Rock",
-	},
-	{
-		Title: "Island in The Sun",
-		Artist: "Weezer",
-		Album: "Weezer (Green Album)",
-		Genre: "Alternative",
-	},
-	{
-		Title: "Feel Good Inc.",
-		Artist: "Gorillaz",
-		Album: "Demon Days",
-		Genre: "Alternative",
-	},
-	{
-		Title: "See Me",
-		Artist: "Rich Brian",
-		Album: "Amen",
-		Genre: "Rap/Hip-Hop",
-	}
-	];
+			Title: "Inside Out",
+			Artist: "Spoon",
+			Album: "They Want My Soul",
+			Genre: "Alternative",
+			Duration: "302"
+			// Duration: inOut.prototype.toString();
+		},
+		{
+			Title: "Little Wing",
+			Artist: "Jimi Hendrix",
+			Album: "Axis: Bold as Love",
+			Genre: "Classic Rock",
+			Duration: "146"
+			// Duration: lilWing.toISOString().substr(11, 8);
+		},
+		{
+			Title: "Island in The Sun",
+			Artist: "Weezer",
+			Album: "Weezer (Green Album)",
+			Genre: "Alternative",
+			Duration: "200"
+			// Duration: IslaSun.toISOString().substr(11, 8);
+		},
+		{
+			Title: "Feel Good Inc.",
+			Artist: "Gorillaz",
+			Album: "Demon Days",
+			Genre: "Alternative",
+			Duration: "223"
+			// Duration: FeelInc.toISOString().substr(11, 8);
+		},
+		{
+			Title: "See Me",
+			Artist: "Rich Brian",
+			Album: "Amen",
+			Genre: "Rap/Hip-Hop",
+			Duration: "212"
+			// Duration: SeeMe.toISOString().substr(11, 8);
+		}
+		];
 
-var cols = ['Title', 'Artist', 'Album', 'Genre'];
-for (var i = 0; i < songs.length; i++) {
-  $('.table').append('<tr></tr>');
-  for (var j = 0; j < cols.length; j++) {
-    $('.table tr:last-child').append('<td>' + songs[i][cols[j]] + '</td>');
-  }
-}
+	$(function() {
+		
+
+		var cols = ['Title', 'Artist', 'Album', 'Genre', 'Duration'];
+		for (var i = 0; i < songs.length; i++) {
+			$('#musicList').append('<tr></tr>');
+			for (var j = 0; j < cols.length; j++) {
+				$('#musicList tr:last-child').append('<td>' + songs[i][cols[j]] + '</td>');
+			}
+		}
+	});
+
+$(function addDurations(data) {
+  const total = songs
+    .map(el => el.Duration.split(':'))
+    .reduce((p, c) => {
+      p.minutes += Number(c[0]);
+      p.seconds += Number(c[1]);
+      return p;
+    }, { minutes: 0, seconds: 0 });
+
+  const whole = Math.floor(total.seconds / 60);
+  total.minutes += whole;
+  total.seconds = total.seconds % 60;
+  return total;
 });
+
+// console.log(addDurations(songs))
+		// $('#statTab').append('<tr></tr>');
+		// $('#statTab tr:last-child').append('<td>' + musicList.Count() + '</td>');	
+		console.log('There should be text here');
+	console.log(addDurations(songs));
 </script>
 
 </html>
-	
+
